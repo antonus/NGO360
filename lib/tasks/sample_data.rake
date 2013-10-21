@@ -2,6 +2,7 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     make_users
+    make_organizations
     make_microposts
     make_relationships
   end
@@ -21,6 +22,19 @@ def make_users
                  email:    email,
                  password: password,
                  password_confirmation: password)
+  end
+end
+
+
+def make_organizations
+  10.times do
+    User.all(:limit => 6).each do |user|
+      name = Faker::Company.name()
+      address = Faker::Address.street_address() + ", " + Faker::Address.city + ", "
+      address += Faker::Address.us_state_abbr() + ", " + Faker::Address.zip_code()
+      url = "http://www." + Faker::Internet.domain_name()
+      user.organizations.create!(:name => name, :address => address, :url => url)
+    end
   end
 end
 

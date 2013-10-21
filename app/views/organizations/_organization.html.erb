@@ -1,0 +1,10 @@
+<li>
+    <span class="name">
+      <%= link_to organization.name, organization %>
+      <% if current_user?(organization.user) %>
+        <%= link_to "Edit", edit_organization_path(organization), :class => "editlink" %>
+      <% end %>
+    </span>
+    <span class="address"><%= organization.address %></span>
+    <span class="url"><%= link_to organization.url, organization.url  %></span>
+</li>

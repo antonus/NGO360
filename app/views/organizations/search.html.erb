@@ -1,0 +1,11 @@
+<%= render 'shared/search_org_form' %>
+<% if @organizations.any? %>
+ <div class="span8">
+        <ol class="organizations">
+          <%= render @organizations %>
+        </ol>
+  </div>
+  <%= will_paginate @organizations %>
+<% else %>
+No Results matching that query
+<% end %>
