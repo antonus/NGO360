@@ -1,4 +1,5 @@
 <%= render 'shared/search_org_form' %>
+<div class="row">
 <% if @organizations.any? %>
  <div class="span8">
         <ol class="organizations">
@@ -9,3 +10,4 @@
 <% else %>
 No Results matching that query
 <% end %>
+</div>
