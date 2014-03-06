@@ -38,6 +38,10 @@ def make_organizations
   end
 end
 
+# TODO
+def make_socialmedialinks
+end
+
 def make_microposts
   users = User.all(limit: 6)
   50.times do
